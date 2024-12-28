@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kryptic/projects/dsa/LinkedList/main.cpp" "CMakeFiles/LinkedList.dir/main.cpp.o" "gcc" "CMakeFiles/LinkedList.dir/main.cpp.o.d"
+  "/home/kryptic/projects/dsa/LinkedList/src/LinkedList.cpp" "CMakeFiles/LinkedList.dir/src/LinkedList.cpp.o" "gcc" "CMakeFiles/LinkedList.dir/src/LinkedList.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

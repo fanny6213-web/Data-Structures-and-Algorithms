@@ -1,7 +1,8 @@
 CMakeFiles/LinkedList.dir/main.cpp.o: \
  /home/kryptic/projects/dsa/LinkedList/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/14/iostream \
- /usr/include/c++/14/bits/requires_hosted.h \
+ /usr/include/stdc-predef.h \
+ /home/kryptic/projects/dsa/LinkedList/include/LinkedList.h \
+ /usr/include/c++/14/iostream /usr/include/c++/14/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -151,4 +152,5 @@ CMakeFiles/LinkedList.dir/main.cpp.o: \
  /usr/include/c++/14/bits/locale_facets.tcc \
  /usr/include/c++/14/bits/basic_ios.tcc \
  /usr/include/c++/14/bits/ostream.tcc /usr/include/c++/14/istream \
- /usr/include/c++/14/bits/istream.tcc
+ /usr/include/c++/14/bits/istream.tcc \
+ /home/kryptic/projects/dsa/LinkedList/include/../src/LinkedList.tpp

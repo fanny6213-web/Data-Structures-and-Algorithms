@@ -4,5 +4,11 @@
   "command": "/usr/bin/c++  -I/home/kryptic/projects/dsa/LinkedList/include -std=gnu++17 -o CMakeFiles/LinkedList.dir/main.cpp.o -c /home/kryptic/projects/dsa/LinkedList/main.cpp",
   "file": "/home/kryptic/projects/dsa/LinkedList/main.cpp",
   "output": "CMakeFiles/LinkedList.dir/main.cpp.o"
+},
+{
+  "directory": "/home/kryptic/projects/dsa/LinkedList/build",
+  "command": "/usr/bin/c++  -I/home/kryptic/projects/dsa/LinkedList/include -std=gnu++17 -o CMakeFiles/LinkedList.dir/src/LinkedList.cpp.o -c /home/kryptic/projects/dsa/LinkedList/src/LinkedList.cpp",
+  "file": "/home/kryptic/projects/dsa/LinkedList/src/LinkedList.cpp",
+  "output": "CMakeFiles/LinkedList.dir/src/LinkedList.cpp.o"
 }
 ]

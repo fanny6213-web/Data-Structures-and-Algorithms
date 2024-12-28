@@ -4,7 +4,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(LinkedList VERSION 1.0)
 
-file(GLOB_RECURSE SRC_FILES src/*.cpp)
+file(GLOB_RECURSE SRC_FILES src/*.cpp src/*.tpp)
+message("Source Directory: ${CMAKE_CURRENT_SOURCE_DIR}")
+message("Source Files: ${SRC_FILES}")
 
 add_executable(LinkedList main.cpp ${SRC_FILES})
 
