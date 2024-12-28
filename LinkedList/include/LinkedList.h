@@ -1,3 +1,4 @@
+#pragma once
 #ifndef LinkedList_h
 #define LinkedList_h
 
@@ -14,7 +15,7 @@ struct listNode
 	T data;
 };
 
-template <typename T>
+template <class T>
 class LinkedList
 {
 	private:
@@ -26,6 +27,8 @@ class LinkedList
 		int getSize() {return size;}
 		listNode<T>* getHead() {return head;}
 		void print();
+		bool contains(T data);
+		void insert(int index, T data);
 };
 
 #include "../src/LinkedList.tpp"

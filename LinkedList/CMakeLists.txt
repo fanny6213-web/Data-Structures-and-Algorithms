@@ -4,9 +4,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(LinkedList VERSION 1.0)
 
-file(GLOB_RECURSE SRC_FILES src/*.cpp src/*.tpp)
+file(GLOB_RECURSE SRC_FILES src/*.tpp)
+list(FILTER SOURCES EXCLUDE REGEX "src/*.cpp")
 message("Source Directory: ${CMAKE_CURRENT_SOURCE_DIR}")
 message("Source Files: ${SRC_FILES}")
+message("Ignored Files: ${CMAKE_IGNORE_PATH}")
 
 add_executable(LinkedList main.cpp ${SRC_FILES})
 

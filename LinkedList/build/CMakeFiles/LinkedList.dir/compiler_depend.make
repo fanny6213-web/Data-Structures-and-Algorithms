@@ -192,11 +192,6 @@ CMakeFiles/LinkedList.dir/main.cpp.o: /home/kryptic/projects/dsa/LinkedList/main
   /usr/lib/gcc/x86_64-linux-gnu/14/include/stddef.h \
   /usr/lib/linux/uapi/x86/asm/errno.h
 
-CMakeFiles/LinkedList.dir/src/LinkedList.cpp.o: /home/kryptic/projects/dsa/LinkedList/src/LinkedList.cpp \
-  /usr/include/stdc-predef.h
-
-
-/home/kryptic/projects/dsa/LinkedList/src/LinkedList.cpp:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
