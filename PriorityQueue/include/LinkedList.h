@@ -29,7 +29,6 @@ class LinkedList
 		void print();
 		bool contains(T data);
 		void insert(int index, T data);
-		bool isEmpty();
 };
 
 #include "../src/LinkedList.tpp"

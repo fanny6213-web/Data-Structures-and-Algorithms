@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/kryptic/projects/dsa/PriorityQueue/build",
+  "command": "/usr/bin/c++  -I/home/kryptic/projects/dsa/PriorityQueue/include -std=gnu++17 -o CMakeFiles/PriorityQueue.dir/main.cpp.o -c /home/kryptic/projects/dsa/PriorityQueue/main.cpp",
+  "file": "/home/kryptic/projects/dsa/PriorityQueue/main.cpp",
+  "output": "CMakeFiles/PriorityQueue.dir/main.cpp.o"
+}
+]
