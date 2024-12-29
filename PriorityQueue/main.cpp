@@ -9,12 +9,12 @@ int main()
 
 	pq.enqueue('c', 10);
 	pq.enqueue('f', 15);
-	pq.enqueue('s', 18);
 	pq.enqueue('h', 19);
 	pq.enqueue('w', 11);
+	pq.enqueue('x', 100);
+	pq.enqueue('y', 5);
 
-	listNode<queueNode<char>>* node = pq.peek();
-	
-	std::cout<<node->data.data<<":"<<node->data.priority<<std::endl;
+	LinkedList<queueNode<char>> queueList = pq.getQueue();
 
+	queueList.print();
 }

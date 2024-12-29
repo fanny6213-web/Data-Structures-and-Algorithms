@@ -20,8 +20,8 @@ class LinkedList
 {
 	private:
 		listNode<T>* head;
-	public:
 		int size = 0;
+	public:
 		void Add(T data);
 		void Remove(T data);
 		int getSize() {return size;}

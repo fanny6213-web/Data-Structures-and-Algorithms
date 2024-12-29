@@ -114,6 +114,7 @@ void LinkedList<T>::insert(int index, T data)
 	{
 		toInsert->next = head;
 		head = toInsert;
+		size++;
 		return;
 	}
 
@@ -124,6 +125,7 @@ void LinkedList<T>::insert(int index, T data)
 
 	toInsert->next = headCpy->next;
 	headCpy->next = toInsert;
+	size++;
 }
 
 #endif

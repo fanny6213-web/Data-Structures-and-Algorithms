@@ -30,6 +30,8 @@ int main()
 	arr.insert(0, 0);
 	std::cout<<"Insert 15 at index 3"<<std::endl;
 	arr.insert(3, 15);
+	std::cout<<"Insert 178 at index 1"<<std::endl;
+	arr.insert(1, 178);
 
 	arr.print();
 }
