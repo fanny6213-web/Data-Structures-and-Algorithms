@@ -230,9 +230,6 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//No help, variable specified on the command line.
-CMAKW_EXPORT_COMPILE_COMMANDS:UNINITIALIZED=ON
-
 //Value Computed by CMake
 LinkedList_BINARY_DIR:STATIC=/home/kryptic/projects/dsa/LinkedList/build
 

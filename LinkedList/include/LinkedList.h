@@ -20,15 +20,19 @@ class LinkedList
 {
 	private:
 		listNode<T>* head;
-	public:
 		int size = 0;
-		void Add(T data);
-		void Remove(T data);
+	public:
+		LinkedList<T>() : head(NULL){};
+		LinkedList<T>(T data) {listNode<T>* HEAD = new listNode<T>(data); head=HEAD; size++;}
+		void addFirst(T data);
+		void addLast(T data);
+		void insert(int index, T data);
+		void remove(T data);
 		int getSize() {return size;}
 		listNode<T>* getHead() {return head;}
 		void print();
+
 		bool contains(T data);
-		void insert(int index, T data);
 		bool isEmpty();
 };
 
