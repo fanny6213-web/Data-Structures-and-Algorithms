@@ -27,7 +27,7 @@ class LinkedList
 		void addFirst(T data);
 		void addLast(T data);
 		void insert(int index, T data);
-		void remove(T data);
+		void remove(int index);
 		int getSize() {return size;}
 		listNode<T>* getHead() {return head;}
 		void print();

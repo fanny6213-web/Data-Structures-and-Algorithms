@@ -153,4 +153,8 @@ CMakeFiles/LinkedList.dir/main.cpp.o: \
  /usr/include/c++/14/bits/basic_ios.tcc \
  /usr/include/c++/14/bits/ostream.tcc /usr/include/c++/14/istream \
  /usr/include/c++/14/bits/istream.tcc \
- /home/kryptic/projects/dsa/LinkedList/include/../src/LinkedList.tpp
+ /home/kryptic/projects/dsa/LinkedList/include/../src/LinkedList.tpp \
+ /usr/include/c++/14/vector /usr/include/c++/14/bits/stl_uninitialized.h \
+ /usr/include/c++/14/bits/stl_vector.h \
+ /usr/include/c++/14/bits/stl_bvector.h \
+ /usr/include/c++/14/bits/vector.tcc

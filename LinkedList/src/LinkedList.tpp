@@ -26,7 +26,7 @@ void EMPTY_LIST_EXCEPTION(void* head)
 
 void ELEMENT_NOT_FOUND_EXCEPTION()
 {
-		throw std::runtime_error("Error: LinkedList: No such element found in the list");
+	throw std::runtime_error("Error: LinkedList: No such element found in the list");
 }
 
 template <typename T>
@@ -100,58 +100,6 @@ void LinkedList<T>::insert(int index, T data)
 	size++;
 }
 
-template <typename T>
-void LinkedList<T>::remove(T data)
-{
-	try
-	{
-		EMPTY_LIST_EXCEPTION(head);
-	} catch (const std::exception& e) {
-		std::cout<<"Error : "<<e.what()<<std::endl;
-		std::exit(EXIT_FAILURE);
-	}
-	
-	listNode<T>* headCpy = head;
-
-	if(this->size == 1)
-	{
-		if(headCpy->data == data)
-		{}
-		else
-		{
-			try
-			{
-				ELEMENT_NOT_FOUND_EXCEPTION();
-			} catch (const std::exception& e) {
-				std::cout<<"Error : "<<e.what()<<std::endl;
-				std::exit(EXIT_FAILURE);
-			}
-		}
-	}
-	else
-	{
-		while(headCpy->next->data != data)
-		{
-			if(headCpy->next == NULL)
-			{
-				try
-				{
-					ELEMENT_NOT_FOUND_EXCEPTION();
-				} catch (const std::exception& e) {
-					std::cout<<"Error : "<<e.what()<<std::endl;
-					std::exit(EXIT_FAILURE);
-				}
-			}
-			headCpy = headCpy->next;
-		}
-	}
-
-	listNode<T>* trash = headCpy->next;
-	headCpy->next = headCpy->next->next;
-
-	size--;
-	delete trash;
-}
 
 template <typename T>
 void LinkedList<T>::print()
@@ -202,6 +150,36 @@ bool LinkedList<T>::contains(T data)
 		headCpy = headCpy->next;
 	}
 	return false;
+}
+
+template <typename T>
+void LinkedList<T>::remove(int index)
+{
+	try
+	{
+		OUT_OF_INDEX_EXCEPTION(size, index);
+	} catch (const std::exception& e) {
+		std::cerr<<"Error: "<<e.what()<<std::endl;
+		exit(EXIT_FAILURE);
+	}
+
+	listNode<T>* headCpy = head;
+	for(int i = 0; i < index-1; i++)
+	{
+		headCpy = headCpy->next;
+	}
+
+	if(headCpy->next == NULL)
+	{
+		delete headCpy;
+	}
+	else
+	{
+		listNode<T>* trash = headCpy->next;
+		headCpy->next = headCpy->next->next;
+		delete trash;
+	}
+	size --;
 }
 
 #endif
