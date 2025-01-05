@@ -13,6 +13,9 @@ int main()
 	pq.enqueue('x', 100);
 	pq.enqueue('y', 5);
 
+	std::cout<<pq.top()->data<<std::endl;
 
-	pq.getQueue().print();
+	pq.dequeue();
+
+	std::cout<<pq.top()->data<<std::endl;
 }

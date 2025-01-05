@@ -1,6 +1,7 @@
 #ifndef LINKEDLIST_TPP_INCLUDED
 #define LINKEDLIST_TPP_INCLUDED
 
+#include "LinkedList.h"
 #include <cstddef>
 #include <cstdlib>
 #include <exception>
@@ -163,23 +164,46 @@ void LinkedList<T>::remove(int index)
 		exit(EXIT_FAILURE);
 	}
 
-	listNode<T>* headCpy = head;
-	for(int i = 0; i < index-1; i++)
-	{
-		headCpy = headCpy->next;
-	}
+	listNode<T>* trash;
 
-	if(headCpy->next == NULL)
+	if(index == 0)
 	{
-		delete headCpy;
+		trash = head;
+		head = head->next;
+		delete trash;
 	}
 	else
 	{
-		listNode<T>* trash = headCpy->next;
-		headCpy->next = headCpy->next->next;
-		delete trash;
+		listNode<T>* headCpy = head;
+		for(int i = 0; i < index-1; i++)
+		{
+			headCpy = headCpy->next;
+		}
+
+		if(headCpy->next == NULL)
+		{
+			delete headCpy;
+		}
+		else
+		{
+			trash = headCpy->next;
+			headCpy->next = headCpy->next->next;
+			delete trash;
+		}
 	}
 	size --;
+}
+
+template <typename T>
+void LinkedList<T>::clear()
+{
+	listNode<T>* trash; 
+	while(head != NULL)
+	{
+		trash = head;
+		head = head->next;
+		delete trash;
+	}
 }
 
 #endif

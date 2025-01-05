@@ -14,7 +14,8 @@ int main()
 
 	arr.print();
 
-	arr.remove(3);
+	arr.remove(0);
 
 	arr.print();
+
 }

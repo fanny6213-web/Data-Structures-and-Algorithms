@@ -22,8 +22,12 @@ class pQueue
 	public:
 		LinkedList<queueNode<T>> getQueue() {return queue;}
 		void enqueue(T data, int priority = 0);
+		bool empty();
+		int size();
+		listNode<queueNode<T>>* top();
 		void dequeue();
-		listNode<queueNode<T>>* peek();
+		void clear();
+		~pQueue(){clear();}
 };
 
 #include "../src/PriorityQueue.tpp"

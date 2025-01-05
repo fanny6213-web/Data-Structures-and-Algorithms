@@ -1,6 +1,16 @@
-#include <cstddef>
+#ifndef PRIORITYQEUEUE_TPP_DEFINED
+#define PRIORITYQEUEUE_TPP_DEFINED
+
+#include <cstdlib>
+#include <exception>
 #include <iostream>
 #include <ostream>
+#include <stdexcept>
+
+void EMPTY_QUEUE_EXCEPTION()
+{
+	throw std::runtime_error("PriorityQueue: Queue is empty");
+}
 
 template <typename T>
 void pQueue<T>::enqueue(T data, int priority)
@@ -45,41 +55,64 @@ void pQueue<T>::enqueue(T data, int priority)
 	return;
 }
 
-
-
-
-
-
-
-
-
-
-
+template <typename T>
+bool pQueue<T>::empty()
+{
+	if(queue.getSize() == 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
 template <typename T>
-listNode<queueNode<T>>* pQueue<T>::peek()
+int pQueue<T>::size()
 {
+	return queue.getSize();
+}
+
+template <typename T>
+listNode<queueNode<T>>* pQueue<T>::top()
+{
+	if(queue.getSize() == 0)
+	{
+		try
+		{
+			EMPTY_QUEUE_EXCEPTION();
+		} catch(std::exception e) {
+			std::cerr<<e.what()<<std::endl;
+			exit(EXIT_FAILURE);
+		}
+	}
 	return queue.getHead();
 }
 
 template <typename T>
 void pQueue<T>::dequeue()
 {
-	if(queue.getSize() <= 0)
+	if(queue.getSize() == 0)
 	{
-		return;
-	}
-	else{
-		listNode<queueNode<T>>* headCpy = queue.getHead();
-		if(queue.getSize() == 1)
+		try
 		{
-			delete headCpy;
-		}
-		else
-		{
-			queue.Remove(queue.getHead()->data);
+			EMPTY_QUEUE_EXCEPTION();
+		} catch(std::exception& e) {
+			std::cerr<<e.what()<<std::endl;
+			exit(EXIT_FAILURE);
 		}
 	}
+	else
+	{
+		queue.remove(0);
+	}
+}
+
+template <typename T>
+void pQueue<T>::clear()
+{
+	queue.clear();
 }
 
 template <typename T>
@@ -100,3 +133,5 @@ std::ostream& operator<<(std::ostream& out, const queueNode<T>& obj)
 	out << obj.data << ":" << obj.priority;	
 	return out;
 }
+
+#endif

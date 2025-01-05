@@ -2,8 +2,9 @@
 #ifndef LinkedList_h
 #define LinkedList_h
 
-#include <iostream>
 #include <cstddef>
+#include <iostream>
+#include <ostream>
 
 template <typename T>
 struct listNode
@@ -33,6 +34,8 @@ class LinkedList
 		void print();
 		bool contains(T data);
 		bool isEmpty();
+		void clear();
+		~LinkedList(){clear();}
 };
 
 #include "../src/LinkedList.tpp"
