@@ -20,10 +20,10 @@ class pQueue
 	private:
 		LinkedList<queueNode<T>> queue;
 	public:
+		LinkedList<queueNode<T>> getQueue() {return queue;}
 		void enqueue(T data, int priority = 0);
 		void dequeue();
 		listNode<queueNode<T>>* peek();
-		LinkedList<queueNode<T>> getQueue() {return queue;}
 };
 
 #include "../src/PriorityQueue.tpp"

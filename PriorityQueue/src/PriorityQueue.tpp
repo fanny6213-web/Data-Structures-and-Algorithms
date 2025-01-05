@@ -5,51 +5,56 @@
 template <typename T>
 void pQueue<T>::enqueue(T data, int priority)
 {
-	queueNode<T> toAddData(data, priority); 
-
-	if(queue.getSize() > 1)
+	queueNode<char> toInsert(data, priority);
+	//Insert at first if the queueSize is 0 (insert in a empty queue())
+	if(queue.getSize() == 0)
 	{
-		listNode<queueNode<T>>* headCpy = queue.getHead();
-		int insertIndex = 0;
-
-		for(int i = 0; i <= queue.getSize(); i++)
-		{
-			if(priority > headCpy->data.priority)
-			{
-				queue.insert(i, toAddData);
-				return;
-			}
-			if(headCpy->next == NULL)
-			{
-				queue.insert(queue.getSize()-1, toAddData);
-			}
-			if(priority > headCpy->next->data.priority)
-			{
-				queue.insert(i+1, toAddData); 
-				return;
-			}
-			headCpy = headCpy->next;
-		}
+		queue.addFirst(toInsert);
+		return;
 	}
 	else
 	{
-		if(queue.getSize() == 0)
+		listNode<queueNode<T>>* headCpy = queue.getHead();
+		int size = queue.getSize();
+
+		//Insert at first if the priority of first node is lesser than the InsertionNode
+		if(priority > headCpy->data.priority)
 		{
-			queue.Add(toAddData);
+			queue.addFirst(toInsert);
+			return;
 		}
+		//Normal traversal insertion
 		else
 		{
-			if(queue.getHead()->data.priority < priority)
+			for(int i = 0; i < size; i++)
 			{
-				queue.insert(0, toAddData);
-			}
-			else
-			{
-				queue.Add(toAddData);
+				if(priority > headCpy->data.priority)
+				{
+					queue.insert(i, toInsert);
+					return;
+				}
+				else
+				{
+					headCpy = headCpy->next;
+				}
 			}
 		}
 	}
+	//Insert at the end if we reach the end of the queue;
+	queue.insert(queue.getSize(), toInsert);
+	return;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 template <typename T>
 listNode<queueNode<T>>* pQueue<T>::peek()

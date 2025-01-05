@@ -22,13 +22,17 @@ class LinkedList
 		listNode<T>* head;
 		int size = 0;
 	public:
-		void Add(T data);
-		void Remove(T data);
+		LinkedList<T>() : head(NULL){};
+		LinkedList<T>(T data) {listNode<T>* HEAD = new listNode<T>(data); head=HEAD; size++;}
+		void addFirst(T data);
+		void addLast(T data);
+		void insert(int index, T data);
+		void remove(int index);
 		int getSize() {return size;}
 		listNode<T>* getHead() {return head;}
 		void print();
 		bool contains(T data);
-		void insert(int index, T data);
+		bool isEmpty();
 };
 
 #include "../src/LinkedList.tpp"

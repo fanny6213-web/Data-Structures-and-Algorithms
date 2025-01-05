@@ -31,7 +31,6 @@ class LinkedList
 		int getSize() {return size;}
 		listNode<T>* getHead() {return head;}
 		void print();
-
 		bool contains(T data);
 		bool isEmpty();
 };

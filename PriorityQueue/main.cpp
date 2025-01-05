@@ -6,7 +6,6 @@
 int main()
 {
 	pQueue<char> pq;
-
 	pq.enqueue('c', 10);
 	pq.enqueue('f', 15);
 	pq.enqueue('h', 19);
@@ -14,7 +13,6 @@ int main()
 	pq.enqueue('x', 100);
 	pq.enqueue('y', 5);
 
-	LinkedList<queueNode<char>> queueList = pq.getQueue();
 
-	queueList.print();
+	pq.getQueue().print();
 }

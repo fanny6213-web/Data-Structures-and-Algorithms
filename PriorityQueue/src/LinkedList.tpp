@@ -1,75 +1,118 @@
 #ifndef LINKEDLIST_TPP_INCLUDED
 #define LINKEDLIST_TPP_INCLUDED
 
+#include <cstddef>
+#include <cstdlib>
+#include <exception>
 #include <iostream>
 #include <ostream>
+#include <stdexcept>
 
-template <typename T>
-void LinkedList<T>::Add(T data)
+void OUT_OF_INDEX_EXCEPTION(int size, int index)
 {
-	listNode<T>* toAdd = new listNode<T>(data);
-
-	listNode<T>* headCpy = head;
-
-	//checking if the list is empty
-	if(size == 0)
+	if(index > size)
 	{
-		head = toAdd;
-		size ++;
-		return;
+		throw std::runtime_error("LinkedList: Index out of range");
 	}
+}
 
-	//traversing till end
-	while(headCpy->next != NULL)
+void EMPTY_LIST_EXCEPTION(void* head)
+{
+	if(head==NULL)
 	{
-		if(headCpy->data == toAdd->data)
-		{
-			std::cout<<"Element already exists"<<std::endl;
-			return;
-		}
-		headCpy = headCpy->next;
+		throw std::runtime_error("LinkedList: Can't operate on an empty list");
 	}
+}
 
-	//adding the element
-	size++;
-	headCpy->next = toAdd;
+void ELEMENT_NOT_FOUND_EXCEPTION()
+{
+	throw std::runtime_error("Error: LinkedList: No such element found in the list");
 }
 
 template <typename T>
-void LinkedList<T>::Remove(T data)
+void LinkedList<T>::addFirst(T data)
 {
+	listNode<T>* toInsert = new listNode<T>(data); 
 	if(head == NULL)
 	{
-		std::cout<<"List is empty"<<std::endl;
-		return;
+		head = toInsert;
+	}
+	else
+	{
+		toInsert->next = head;
+		head = toInsert;
+	}
+	size++;
+}
+
+template <typename T>
+void LinkedList<T>::addLast(T data)
+{
+	listNode<T>* toInsert = new listNode<T>(data);
+
+	if(head == NULL)
+	{
+		head = toInsert;
+	}
+	else
+	{
+		listNode<T>* headCpy = head;
+
+		while(headCpy->next != NULL)
+		{
+			headCpy = headCpy->next;
+		}
+
+		headCpy->next = toInsert;
+	}
+	size++;
+}
+
+template <typename T>
+void LinkedList<T>::insert(int index, T data)
+{
+	try
+	{
+		OUT_OF_INDEX_EXCEPTION(size, index);
+	} catch (const std::exception& e) {
+		std::cerr<<"Error: "<<e.what()<<std::endl;
+		exit(EXIT_FAILURE);
 	}
 
 	listNode<T>* headCpy = head;
 
-	while(headCpy->next->data != data)
+	if(index == 0)
 	{
-		if(headCpy->next == NULL)
-		{
-			std::cout<<"No such element in the list"<<std::endl;
-			return;
-		}
-		headCpy = headCpy->next;
+		this->addFirst(data);
 	}
+	else
+	{
+		listNode<T>* toInsert = new listNode<T>(data);
 
-	listNode<T>* trash = headCpy->next;
-	headCpy->next = headCpy->next->next;
+		for(int i = 0; i < index-1; i++)
+		{
+			headCpy = headCpy->next;
+		}
 
-	size--;
-	delete trash;
+		toInsert->next = headCpy->next;
+		headCpy->next = toInsert;
+	}
+	size++;
 }
+
 
 template <typename T>
 void LinkedList<T>::print()
 {
 	if(head == NULL)
 	{
-		std::cout<<"List is empty"<<std::endl;
-		return;
+		try
+		{
+			EMPTY_LIST_EXCEPTION(head);
+		} catch (const std::exception& e) {
+			std::cout<<"Error : "<<e.what()<<std::endl;
+			std::exit(EXIT_FAILURE);
+		}
 	}
 
 	listNode<T>* headCpy = head;
@@ -89,8 +132,13 @@ bool LinkedList<T>::contains(T data)
 
 	if(head == NULL)
 	{
-		std::cout<<"List is empty"<<std::endl;
-		return false;
+		try
+		{
+			EMPTY_LIST_EXCEPTION(head);
+		} catch (const std::exception& e) {
+			std::cout<<"Error : "<<e.what()<<std::endl;
+			std::exit(EXIT_FAILURE);
+		}
 	}
 
 	while(headCpy->next != NULL)
@@ -105,27 +153,33 @@ bool LinkedList<T>::contains(T data)
 }
 
 template <typename T>
-void LinkedList<T>::insert(int index, T data)
+void LinkedList<T>::remove(int index)
 {
-	listNode<T>* headCpy = head;
-	listNode<T>* toInsert = new listNode<T>(data);
-
-	if(index == 0)
+	try
 	{
-		toInsert->next = head;
-		head = toInsert;
-		size++;
-		return;
+		OUT_OF_INDEX_EXCEPTION(size, index);
+	} catch (const std::exception& e) {
+		std::cerr<<"Error: "<<e.what()<<std::endl;
+		exit(EXIT_FAILURE);
 	}
 
+	listNode<T>* headCpy = head;
 	for(int i = 0; i < index-1; i++)
 	{
 		headCpy = headCpy->next;
 	}
 
-	toInsert->next = headCpy->next;
-	headCpy->next = toInsert;
-	size++;
+	if(headCpy->next == NULL)
+	{
+		delete headCpy;
+	}
+	else
+	{
+		listNode<T>* trash = headCpy->next;
+		headCpy->next = headCpy->next->next;
+		delete trash;
+	}
+	size --;
 }
 
 #endif
