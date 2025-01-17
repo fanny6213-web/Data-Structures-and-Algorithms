@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/kryptic/projects/dsa/BinarySearchTree/build",
+  "command": "/usr/bin/c++  -I/home/kryptic/projects/dsa/BinarySearchTree/include -std=gnu++17 -o CMakeFiles/BinarySearchTree.dir/main.cpp.o -c /home/kryptic/projects/dsa/BinarySearchTree/main.cpp",
+  "file": "/home/kryptic/projects/dsa/BinarySearchTree/main.cpp",
+  "output": "CMakeFiles/BinarySearchTree.dir/main.cpp.o"
+}
+]
