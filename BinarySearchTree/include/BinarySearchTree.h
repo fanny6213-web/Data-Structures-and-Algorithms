@@ -30,10 +30,14 @@ class treeSet
 		treeNode<T>* root;
 		void insert(treeNode<T>*& data, treeNode<T>*& rootCpy);
 		void printSideways(treeNode<T>*& rootCpy, std::string prefix="");
+		void remove(treeNode<T>*& rootCpy, T data);
+		treeNode<T>*& getMin(treeNode<T>*& rootCpy);
 	public:
 		void insert(T data);
 		void printSideways();
+		treeNode<T>*& getMin();
 		treeNode<T>* getRoot(){return root;};
+		void remove(T data);
 };
 
 #include "../src/BinarySearchTree.tpp"
